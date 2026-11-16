@@ -22,7 +22,7 @@ Abra o terminal (Linux) ou Prompt de Comando / PowerShell (Windows) diretamente 
 Execute o comando abaixo para compilar todas as classes de uma só vez:
 
 ```bash
-javac Grafo.java Algoritmo.java Principal.java GeradorInstancias.java
+javac Grafo.java AlgoritmoExato.java Principal.java GeradorInstancias.java
 ```
 *(Em terminais Linux/macOS ou PowerShell: `javac *.java`)*
 
@@ -33,7 +33,7 @@ Caso a pasta `instancias/` esteja vazia ou você deseje recriar o pacote padrão
 java GeradorInstancias
 ```
 No menu do gerador:
-* Digite `1` para criar automaticamente as 6 instâncias padrão na pasta `instancias/`.
+* Digite `1` para criar automaticamente as instâncias padrão na pasta `instancias/`.
 * Digite `2` para gerar um grafo aleatório personalizado segundo o modelo de Erdős–Rényi $G(n, p)$.
 * Digite `3` para gerar um grafo $k$-partido com número cromático ótimo conhecido $\chi(G) = k$.
 * Digite `0` para sair do gerador.
