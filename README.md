@@ -1,8 +1,6 @@
 # Algoritmo Exato para o Problema de Coloração de Vértices
 
-Implementação em Java puro de um algoritmo exato para o Problema de Coloração de Vértices, desenvolvido como requisito avaliativo de Projeto e Análise de Algoritmos.
-
-O projeto utiliza a técnica de Branch-and-Bound guiada dinamicamente pelo grau de saturação (DSATUR, proposto por Brélaz, 1979 e Brown, 1972), combinada com uma heurística gulosa de Clique Maximal Inicial na raiz da árvore de busca para estabelecimento de Limite Inferior e quebra de simetria de cores.
+Implementação em Java puro de um algoritmo exato para o Problema de Coloração de Vértices. O projeto utiliza a técnica de Branch-and-Bound guiada dinamicamente pelo grau de saturação (DSATUR, proposto por Brélaz, 1979 e Brown, 1972), combinada com uma heurística gulosa de Clique Maximal Inicial na raiz da árvore de busca.
 
 
 ## Pré-requisitos
