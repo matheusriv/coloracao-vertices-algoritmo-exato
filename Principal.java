@@ -21,8 +21,8 @@ public class Principal {
             System.out.println("\n=======================================================");
             System.out.println("   EXECUCAO DO ALGORITMO EXATO - COLORACAO DE GRAFOS   ");
             System.out.println("=======================================================");
-            System.out.println("1 - Selecionar e resolver uma instancia da pasta '" + DIR_INSTANCIAS + "/'");
-            System.out.println("2 - Executar todas as instancias da pasta");
+            System.out.println("1 - Executar todas as instancias da pasta");
+            System.out.println("2 - Selecionar e resolver uma instancia da pasta '" + DIR_INSTANCIAS + "/'");
             System.out.println("3 - Configurar tempo limite (Atual: " + (timeoutMs / 1000) + " s)");
             System.out.println("0 - Encerrar") ;
             System.out.print("Opcao: ");
@@ -32,14 +32,14 @@ public class Principal {
             if (opcao.equals("0")) {
                 System.out.println("Programa finalizado.");
                 break;
-            } else if (opcao.equals("1")) { 
+            } else if (opcao.equals("2")) { 
                 File[] listaArquivos = listarArquivosInstancia();
                 if (listaArquivos == null || listaArquivos.length == 0) {
                     exibirAvisoPastaVazia();
                     continue;
                 }
 
-                System.out.println("\n--- Casos de teste encontrados ---");
+                System.out.println("\n--- Casos de teste encontrados da pasta '" + DIR_INSTANCIAS + "/' ---");
                 for (int i = 0; i < listaArquivos.length; i++) {
                     System.out.printf("[%d] %s\n", (i + 1), listaArquivos[i].getName());
                 }
@@ -69,7 +69,7 @@ public class Principal {
                     System.out.println("Entrada invalida.");
                 }
 
-            } else if (opcao.equals("2"))  {
+            } else if (opcao.equals("1"))  {
                 File[] listaArquivos = listarArquivosInstancia();
                 if (listaArquivos == null || listaArquivos.length == 0)  {
                     exibirAvisoPastaVazia();
@@ -106,7 +106,7 @@ public class Principal {
                 System.out.println("Opcao inexistente.");
             }
         }
-        sc.close();
+        sc.close() ;
     }
 
     private static File[] listarArquivosInstancia() {
@@ -116,14 +116,14 @@ public class Principal {
             Arrays.sort(arquivos);
         }
         return arquivos;
-    }
+    } 
 
     private static void exibirAvisoPastaVazia() {
         System.out.println("\n[!] Nenhuma instancia (.col ou .txt) encontrada em '" + DIR_INSTANCIAS + "/'.");
         System.out.println("Adicione arquivos da literatura DIMACS na pasta ou execute 'java GeradorInstancias'.");
     }
 
-    private static void salvarArquivoRelatorio(String nomeArquivo, String conteudo) {
+    private static void salvarArquivoRelatorio(String nomeArquivo, String conteudo)  {
         File destino = new File(DIR_RELATORIOS, nomeArquivo);
         try (PrintWriter pw = new PrintWriter(new FileWriter(destino))) {
             pw.print(conteudo);

@@ -8,13 +8,11 @@ public class AlgoritmoExato {
     private int nVertices;
     private boolean[][] matAdj;
 
-    // Estruturas do Branch-and-Bound
     private int[] corVertice;
     private int[] melhorSolucao;
-    private int menorNumCores;    // Limite Superior (Upper bound)
-    private int tamCliqueInicial;  // Limite Inferior (Lower bound )
+    private int menorNumCores;    // Limite superior (Upper bound)
+    private int tamCliqueInicial;  // Limite inferior (Lower bound )
 
-    // Métricas do experimento
     private long nosExplorados;
     private long ramosPodados;
     private long instanteInicial;
@@ -38,7 +36,7 @@ public class AlgoritmoExato {
         this.parouPorTimeout = false;
         this.instanteInicial = System.currentTimeMillis();
 
-        // Inicializa o limite superior com o pior valor possível (nVertices + 1)
+        // Inicializa o limite superior com o pior valor possivel (nVertices + 1)
         this.menorNumCores = nVertices + 1;
 
         // Fixa as cores da clique maximal inicial na raiz da arvore
@@ -55,7 +53,7 @@ public class AlgoritmoExato {
         int[] membrosClique = new int[nVertices];
         int qtdMembros = 0;
 
-        // Seleciona o vértice de maior grau para iniciar a clique
+        // Seleciona o vertice de maior grau para iniciar a clique
         int vInicial = -1;
         int maxGrau = -1;
         for (int i = 0; i < nVertices; i++) {
@@ -114,22 +112,22 @@ public class AlgoritmoExato {
 
         nosExplorados++;
 
-        // Caso base: todos os vértices receberam cores válidas 
+        // Caso base todos os vértices receberam cores válidas 
         if (qtdColoridos == nVertices) {
             menorNumCores = maiorCorAtribuida;
             System.arraycopy(corVertice, 0, melhorSolucao, 0, nVertices);
             return;
         }
 
-        // Condição de otimalidade imediata: limite superior atingiu o Lower Bound
+        // limite superior atingiu o Lower Bound
         if (menorNumCores == tamCliqueInicial) {
             return;
         }
 
-        // Seleciona o vértice não colorido mais restrito (regra DSATUR)
+        // Seleciona o vertice não colorido mais restrito (DSATUR)
         int vAtual = selecionarVerticeMaisSaturado();
 
-        // Define o limite de cores para ramificação (Quebra de Simetria + Poda por Limite)
+        // Define o limite de cores para ramificação
         int limiteCor = maiorCorAtribuida + 1;
         if (limiteCor >= menorNumCores) {
             ramosPodados += (limiteCor - (menorNumCores - 1));
@@ -143,7 +141,7 @@ public class AlgoritmoExato {
 
                 buscarRamo(qtdColoridos + 1, novoMaximo);
 
-                corVertice[vAtual] = 0; // Backtracking
+                corVertice[vAtual] = 0; // backtracking
 
                 if (parouPorTimeout || menorNumCores == tamCliqueInicial || menorNumCores <= maiorCorAtribuida) {
                     return;

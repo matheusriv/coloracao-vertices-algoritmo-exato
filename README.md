@@ -47,8 +47,8 @@ java Principal
 *(Para instâncias muito grandes, você pode alocar memória extra para a JVM usando `java -Xmx2G Principal`).*
 
 No menu interativo principal:
-* **Opção `1`**: Lista todos os arquivos `.col` ou `.txt` presentes na pasta `instancias/`. Basta digitar o número do caso de teste desejado para executá-lo, visualizar o relatório completo na tela e salvá-lo automaticamente em `relatorios/relatorio_<nome_da_instancia>.txt`.
-* **Opção `2`**: Executa em lote todas as instâncias disponíveis na pasta `instancias/` e salva um relatório consolidado em `relatorios/relatorio_bateria_completa.txt`.
+* **Opção `1`**: Executa em lote todas as instâncias disponíveis na pasta `instancias/` e salva um relatório consolidado em `relatorios/`.
+* **Opção `2`**: Lista todos os arquivos `.col` ou `.txt` presentes na pasta `instancias/`. Basta digitar o número do caso de teste desejado para executá-lo, visualizar o relatório completo na tela e salvá-lo automaticamente em `relatorios/relatorio_<nome_da_instancia>.txt`.
 * **Opção `3`**: Permite ajustar o tempo limite (*timeout*) por instância.
 * **Opção `0`**: Encerra o programa.
 
